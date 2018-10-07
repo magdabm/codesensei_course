@@ -5,7 +5,6 @@ max = array[i]
 
 while i < array.count
   max = array[i] if max < array[i]
-  end
   i += 1
 end
 
