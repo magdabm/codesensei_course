@@ -3,9 +3,9 @@ loop do
   puts user_input.length
 
   if user_input.length == 3
-    puts "dziękuję"
+    puts "Dziękuję, jest ok."
     break
   else
-    puts "liczba nie jest równa 3"
+    puts "Liczba liter we wprowadzonym tekście nie jest równa 3."
   end
 end
