@@ -11,13 +11,15 @@ puts "Informacje o PESELu:"
 
 if a.count == 11  &&  control % 10 == a[10].to_i
   puts "PESEL jest poprawny."
+
   if a[9].to_i % 2 == 0
     puts "Płeć: kobieta."
   else
     puts "Płeć: mężczyzna."
   end
+
+  puts "Data urodzenia: #{a[4, 2].join}-#{a[2, 2].join}-19#{a[0, 2].join}"
+  
 else
   puts "PESEL jest niepoprawny."
 end
-
-puts "Data urodzenia: #{a[4, 2].join}-#{a[2, 2].join}-19#{a[0, 2].join}"
