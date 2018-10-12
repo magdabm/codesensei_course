@@ -1,5 +1,6 @@
 # Algorytm, który wczytuje 2 liczby, liczący ich sumę i różnicę i wypisujący komunikat "Suma większa od różnicy" jeśli suma jest większa, "Suma jest mniejsza od różnicy" jeśli suma jest mniejsza lub "Suma jest równa różnicy" jeśli obie są sobie równe.
 
+# wariant kodu sprawdzający, która liczba jest większa, żeby zawsze odejmować mniejszą od większej
 
 puts "Podaj dwie liczby:"
 num1 = gets.to_i
