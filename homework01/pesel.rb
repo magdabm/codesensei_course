@@ -19,7 +19,7 @@ if a.count == 11  &&  control % 10 == a[10].to_i
   end
 
   puts "Data urodzenia: #{a[4, 2].join}-#{a[2, 2].join}-19#{a[0, 2].join}"
-  
+  puts a[4, 2].join
 else
   puts "PESEL jest niepoprawny."
 end
