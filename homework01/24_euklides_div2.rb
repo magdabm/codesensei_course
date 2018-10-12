@@ -2,15 +2,15 @@ puts "Wprowadź liczby:"
 a = gets.to_i
 b = gets.to_i
 
-r = 0
-
-while b != 0 && a != 0
-  if a > b
-    a % b == r
+if a > b
+  while b != 0
+    r = a % b
     a = b
     b = r
-  else
-    b % a == r
+  end
+else
+  while a != 0
+    r = b % a
     b = a
     a = r
   end
