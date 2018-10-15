@@ -3,18 +3,22 @@ Let's begin."
 
 a = 0
 b = 99
-c = (a + b) / 2
 
+loop do
 
-puts "Is it: #{rand (100)}?"
+  c = (a + b) / 2
 
-tip = gets.chomp
+  puts "Is it: #{c}?"
 
-if tip == "more"
-  puts rand (c - b)
-elsif tip == "less"
-  puts rand (a - c)
-else tip  == "ok"
-  puts "Yeah!!!"
-  exit
+  tip = gets.chomp
+
+  if tip == "more"
+    a = c
+  elsif tip == "less"
+    b = c
+  else tip == "ok"
+    puts "Yeah!!!"
+    exit
+  end
+
 end
