@@ -2,7 +2,7 @@ puts "Let's play the game. Think of a number from 0 to 99. I will try to guess. 
 Let's begin."
 
 a = 0
-b = 99
+b = 100
 
 loop do
 
