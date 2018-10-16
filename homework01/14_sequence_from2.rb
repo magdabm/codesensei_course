@@ -6,7 +6,7 @@ num = gets.to_i
 
 i = 2
 
-if num <= 2
+if num < 2
   puts "Number must be greater than \"1\"."
   exit
 end

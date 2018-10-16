@@ -12,7 +12,6 @@ loop do
   if num != 0
     sum_p = sum_p + num if num > 0
     sum_n = sum_n + num if num < 0
-    next
   else
     puts "The sum of positive numbers is: #{sum_p}"
     puts "The sum of negative numbers is: #{sum_n}"

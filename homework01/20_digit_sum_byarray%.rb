@@ -4,7 +4,7 @@
 puts "Enter the number:"
 num = gets.to_i             # zmiana wprowadzonej liczby na cyfry, aby wykonać obliczenie reszty z dzielenia
 
-dig_last = num % 10         # przypisanie zmiennej dig_last wartości reszty z dzielenia
+num % 10 = dig_last      # przypisanie zmiennej dig_last wartości reszty z dzielenia
 
 digits = num.to_s.chars     # zmiana wprowadzonej liczby w string, a następnie w tablicę
 
