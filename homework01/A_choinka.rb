@@ -2,19 +2,17 @@
 p = 4
 c = 1
 
-while c <= 7
-  puts " " * p + "*" * c + " " * p
-  p = p - 1
-  c = c + 2
-end
+2.times do
 
-p = 3
-c = 3
+    4.times do
+      puts " " * p + "*" * c + " " * p
+      p = p - 1
+      c = c + 2
+    end
 
-while c <= 9
-  puts " " * p + "*" * c + " " * p
-  p = p - 1
-  c = c + 2
+    p = p + 3
+    c = c - 6
+
 end
 
 puts " " * 4 + "*" * 1 + " " * 4
