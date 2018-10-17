@@ -6,12 +6,12 @@ c = 1
 
     4.times do
       puts " " * p + "*" * c + " " * p
-      p = p - 1
-      c = c + 2
+      p -= 1
+      c += 2
     end
 
-    p = p + 3
-    c = c - 6
+    p += 3
+    c -= 6
 
 end
 
