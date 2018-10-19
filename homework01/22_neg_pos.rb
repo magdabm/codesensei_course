@@ -12,7 +12,6 @@ loop do
   if num != 0
     pos = num if num > 0
     neg = num if num < 0
-    next
   else
     puts "The positive number was entered." if pos != 0
     puts "The negative number was entered." if neg != 0

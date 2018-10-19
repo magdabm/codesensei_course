@@ -2,10 +2,16 @@
 
 
 puts "Enter the number:"
-num = gets.chomp
+num = gets.chomp.chars
 
-digits = num.chars
+length = num.length
 
-sum = digits[0].to_i + digits[1].to_i + digits[2].to_i
+i = 0
+sum = 0
+
+length.times do
+  sum = sum + num[i].to_i
+  i += 1
+end
 
 puts "Sum of digits of your number is: #{sum}."
