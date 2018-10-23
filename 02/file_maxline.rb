@@ -7,5 +7,18 @@ file.each do |line|
   max = line
   end
 end
-puts max
 file.close
+
+puts max
+
+
+
+# data = File.open("/etc/hosts") { |f| f.map { |line| line.reverse } }
+# to to samo co:
+data = File.open("/etc/hosts") do |f|
+  f.map do |line|
+    line.reverse
+  end
+end
+
+puts data
