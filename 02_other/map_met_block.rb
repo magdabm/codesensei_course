@@ -17,7 +17,7 @@ puts map([1,2,3,4]).inspect
 
 # lub: (????????)
 
-def map(source)
+def map([1,2,3,4])
   result = []
   source.each do |element|
     result << yield(element)
