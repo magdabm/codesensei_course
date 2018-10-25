@@ -11,7 +11,7 @@ a3 = [2, 3, 3, 4, 4, 4, 4, 4, 4, 5, 6, 6, 6, 6, 7, 7, 8, 9]
 i = 0
 sum_a1 = 0
 
-while i <= a1.length
+while i < a1.length
   sum_a1 = sum_a1 + a1[i].to_i
   i += 1
 end
@@ -24,7 +24,7 @@ puts "Średnia wartość z tablicy a1 to: #{av1.to_f}"
 i = 0
 sum_a2 = 0
 
-while i <= a2.length
+while i < a2.length
   sum_a2 = sum_a2 + a2[i].to_i
   i += 1
 end
@@ -37,7 +37,7 @@ puts "Średnia wartość z tablicy a2 to: #{av2}"
 i = 0
 sum_a3 = 0
 
-while i <= a3.length
+while i < a3.length
   sum_a3 = sum_a3 + a3[i].to_i
   i += 1
 end
@@ -51,7 +51,7 @@ puts "Średnia wartość z tablicy a3 to: #{av3}"
 def average(array)
   sum_array = 0
   i = 0
-  while i <= array.length
+  while i < array.length
     sum_array = sum_array + array[i].to_i
     i += 1
   end

@@ -2,16 +2,16 @@
 
 array = ["a", "bb", "ccc", "dddd", "eeeee"]
 # Najpierw różnica pomiędzy each a map. Nawet jeśli przypiszemy tablicy array nową nazwę (map) przy okazji wykonywania na niej bloku, nie otrzymamy nowej tablicy z nowymi wartościami. Wynik bloku nie zostanie zapisany, stara tablica zyska tylko nową nazwę i będzie taka sama jako array i new.
-new = array.each do |e|
+array_2 = array.each do |e|
   puts e.length
 end
-puts "each / to jest new #{new}"
+puts "each / to jest nowy array_2 #{array_2}"
 puts "each / to jest array #{array}"
 # Natomiast jeśli użyjemy metody map w tym samym miejsu co each, stary array zostanie taki sam, a nowy po użyciu metody zostanie zapisany z wartościami "nil".
-new = array.map do |e|
+array_2 = array.map do |e|
   puts e.length
 end
-puts "map / to jest new #{new}"
+puts "map / to jest nowy array_2 #{array_2}"
 puts "map / to jest array #{array}"
 
 

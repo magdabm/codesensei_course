@@ -13,9 +13,7 @@ def digit_to_word(digit)
   digit
 end
 
-
 def number_in_words(num)
-
 words = ""
   while num >= 1
     digit = num % 10
