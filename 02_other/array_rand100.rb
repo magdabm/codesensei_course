@@ -8,7 +8,7 @@ arr_100 = Array.new(10) { rand(100) }    # tak samo jak: do |i| rand(100) end
 
 puts arr_100.inspect
 puts
-"\n"
+("\n")
 
 
 arr_grouped = arr_100.group_by { |i| i % 10 }    # tak samo jak: do |i| i%10 end
