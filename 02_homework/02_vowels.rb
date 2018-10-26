@@ -22,6 +22,6 @@ end
 puts vowel("test")
 puts vowel("foobar")
 puts vowel("a coś dłuższego?")
-puts vowel("a UPCASE?")  # po dodaniu metody .downcase do stringa przed.chars :)
+puts vowel("a UPCASE?")  # po dodaniu metody .downcase do stringa przed .chars :)
 
 # jeśli w bloku jest najpierw array, a w if jest vowels działa ok, jeżeli na odwr odwrót - zlicza tylko rodzaje samogłosek zamiast wszystkich

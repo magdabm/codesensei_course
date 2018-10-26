@@ -3,6 +3,7 @@
 # initials('Jan Krzysztof Rakoczy') #=> 'JKR'
 # initials('marcin nowak') #=> 'MN'
 
+
 def initials(string)
   name = string.chomp.split
   init = ""
