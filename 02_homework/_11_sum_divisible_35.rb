@@ -1,5 +1,4 @@
 # Napisz metodę, która dla podanego argumentu n znajdzie wszystkie liczby całkowite w przedziale 0 do n, które sa podzielne przez 3 lub 5 i zwróci sumę tych liczb.
-
 # multiples(10) #=> 33  (3 + 5 + 6 + 9 + 10)
 # multiples(20) #=> 98 (3 + 5 + 6 + 9 + 10 + 12 + 15 + 18 + 20)
 

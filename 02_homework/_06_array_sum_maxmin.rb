@@ -4,7 +4,6 @@
 # sum_array([12, 4]) #=> 0
 # sum_array([120, 7, 145, -10, -15]) #=> 117
 
-
 def sum_array(array)
   result = array.sum - array.max - array.min
 end

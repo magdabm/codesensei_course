@@ -6,7 +6,6 @@
 # "" jest równy ""
 # Twoim zdaniem jest napisanie funkcji, która przetwarza string według powyższej reguły.
 
-
 def backspace_in_string(string)
   array = string.chars
 

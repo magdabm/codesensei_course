@@ -3,7 +3,6 @@
 # palindrome?('kajak') #=> true
 # palindrome?('kajak i wiosło') #=> false
 
-
 def palindrome?(input)
   normalized_input = input.downcase.split.join
   normalized_input == normalized_input.reverse
