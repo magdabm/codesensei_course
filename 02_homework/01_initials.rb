@@ -5,7 +5,7 @@
 
 
 def initials(string)
-  name = string.chomp.split
+  name = string.split
   init = ""
   name.each do |elem|
     init += elem[0]
