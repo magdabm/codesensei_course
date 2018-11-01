@@ -17,7 +17,7 @@ puts map([1,2,3,4]).inspect
 
 # lub: (????????)
 
-def map([1,2,3,4])
+def map1([1,2,3,4])
   result = []
   source.each do |element|
     result << yield(element)
@@ -25,4 +25,8 @@ def map([1,2,3,4])
 result
 end
 
-puts map([1,2,3,4])  # nie działa
+map1 do
+end
+
+
+puts map1([1,2,3,4])  # nie działa
