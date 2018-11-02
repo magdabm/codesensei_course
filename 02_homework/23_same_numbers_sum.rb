@@ -8,26 +8,19 @@ def consecutives_sum(array)
   sum_array = []
 
   while i < array.length
-
     if array[i] == array[i+1]
       index_sum = array[i]
-      while i < array.length
-        if array[i] == array[i+1]
-          index_sum += array[i+1]
-        else
-          sum_array << index_sum
-          break
-        end
+      while array[i] == array[i+1]
+        index_sum += array[i+1]
         i += 1
       end
-
+      sum_array << index_sum
     else
       sum_array << array[i]
     end
     i += 1
   end
-
-sum_array.inspect
+  sum_array.inspect
 end
 
 puts consecutives_sum([1, 4, 4, 4, 0, 4, 3, 3, 1])
