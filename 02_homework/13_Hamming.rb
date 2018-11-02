@@ -11,13 +11,12 @@
 def hamming(str1, str2)
   str1 = str1.chars
   str2 = str2.chars
-  str_l = str1.length
   i = 0
   hamming = 0
   if str1.length != str2.length
     nil
   else
-    while i < str_l
+    while i < str1.length
       if str1[i] != str2[i]
         hamming += 1
       end
