@@ -24,4 +24,4 @@ puts vowel("foobar")
 puts vowel("a coś dłuższego?")
 puts vowel("a UPCASE?")  # tak, ale po dodaniu metody .downcase do stringa przed .chars :)
 
-# jeśli w bloku jest najpierw array, a w if jest vowels działa ok, jeżeli na odwr odwrót - zlicza tylko rodzaje samogłosek zamiast wszystkich
+# jeśli w bloku jest najpierw array, a w if jest vowels działa ok, jeżeli na odwrót - zlicza tylko rodzaje samogłosek zamiast wszystkich

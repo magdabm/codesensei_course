@@ -3,7 +3,7 @@
 # highest_number(1464) #=> 6441
 # highest_number(165423) #=> 654321
 
-
+# metoda? digits zamienia zadaną liczbę w tablicę cyfr w kolejności od tyłu
 def change_to_highest(num)
   new_num = num.digits.sort.reverse.join
 end
