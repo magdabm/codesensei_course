@@ -5,20 +5,16 @@
 
 def consecutives_sum(array)
   i = 0
-  n = 1
-  index_sum = 0
   sum_array = []
 
   while i < array.length
-    n = 1
 
     if array[i] == array[i+1]
-
+      index_sum = array[i]
       while i < array.length
         if array[i] == array[i+1]
-          n += 1
+          index_sum += array[i+1]
         else
-          index_sum = n * array[i]
           sum_array << index_sum
           break
         end
