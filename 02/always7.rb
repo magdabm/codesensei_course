@@ -3,4 +3,4 @@ def always_seven
 return 8
 end
 
-always_seven
+puts always_seven

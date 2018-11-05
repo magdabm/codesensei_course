@@ -5,7 +5,7 @@ def say_hello
 end
 
 def my_loop
-  while true
+  while false
     yield # wywołanie bloku metody do .. end
   end
 end

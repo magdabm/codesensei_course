@@ -11,7 +11,7 @@ loop do
   name = gets.chomp
   break if name == "stop"
 
-  stats[name] = stats[name].to_i + 1
+  stats[name] = stats[name].to_i + 1   # gdyby nie było .to_i to będzie błąd: undefined method `+' for nil
 end
 
 puts "Statystyki imion:"

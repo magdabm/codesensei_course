@@ -1,4 +1,4 @@
-# Stwórz własną metodę, która ruruchamia blok wprowadzony przez programistę
+# Stwórz własną metodę, która uruchamia blok wprowadzony przez programistę
 
 def my_block_method
   puts  "Before yield"

@@ -31,14 +31,14 @@ puts "to jest druga suma #{suma}"
 
 # lub
 
-suma = ["aaaaaa", "bb", "ccc", "dddd", "eeeee"].sum do |value|
+suma2 = ["aaaaaa", "bb", "ccc", "dddd", "eeeee"].sum do |value|
   value.length
 end
-puts "to jest trzecia suma #{suma}"
+puts "to jest trzecia suma #{suma2}"
 
 # lub
 
-suma = ["a", "bb", "ccc", "dddd", "eeeee"].sum(100) do |value|   # sum(100) daje jako początkową wartość 100
+suma3 = ["a", "bb", "ccc", "dddd", "eeeee"].sum(100) do |value|   # sum(100) daje jako początkową wartość 100
   value.length
 end
-puts "Suma tablicy z początkową wartością #{suma}"
+puts "Suma tablicy z początkową wartością #{suma3}"
