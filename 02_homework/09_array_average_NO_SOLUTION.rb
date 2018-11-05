@@ -2,8 +2,7 @@
 # avg_array([1, 3, 5], [3, 5, 7]) #=> [2, 4, 6]
 # avg_array([1, 5, 3, 22], [12, 22, 13, 5], [5, 12, 24, 5], [14, 40, 5, 17]) #=> [8, 19.75, 11.25, 13.5]
 
-
-# dla dwóch tablic, nie działa (tzn. ostatni elemnt w wynikowej tablicy sie dubluje....)
+# dla dwóch tablic, nie działa (tzn. ostatni element w wynikowej tablicy sie dubluje....)
 
 def avg_array(a1, a2)
   a_length = a1.length
