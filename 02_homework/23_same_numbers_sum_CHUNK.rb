@@ -5,13 +5,14 @@
 
 
 def consecutives_sum(input)
- input.chunk_while do |a, b|
-  a == b
- end.to_a.map do |a|
-  a.sum
- end
+   output = input.chunk_while do |a, b|
+      a == b
+   end.to_a.map do |a|
+      a.sum
+   end
+output.inspect
 end
 
 puts consecutives_sum([1, 4, 4, 4, 0, 4, 3, 3, 1])
 puts consecutives_sum([1, 1, 7, 7, 3])
-puts consecutives_sum([-5, -5, 7, 7, 12, 0])
+puts consecutives_sum([-5, -5, 7, 7, 12, 0]) #=> [-10, 14, 12, 0]
