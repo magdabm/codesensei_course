@@ -82,7 +82,7 @@ class Calculator
   def print_history
     puts @history
   end
-  
+
   private
   def append_to_history(operation, argument = nil)
     if argument
