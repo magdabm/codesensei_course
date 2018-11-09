@@ -17,5 +17,4 @@ class Dog
 end
 
 
-# zapis @tracking_id ||= rand(1000) czyli inaczej @tracking_id = @tracking_id || rand(1000)
-# sprawia że przy pierwszym wywołaniu metody zostanie nadana wartość tracking_id, a przy każdym kolejnym już nie, tylko zostanie pokazana ta pierwsza wartość (losowa wartość zostanie nadana gdy wartość tracking_id równa sie 0 lub false)
+# zapis @tracking_id ||= rand(1000) czyli inaczej @tracking_id = @tracking_id || rand(1000) sprawia, że przy pierwszym wywołaniu metody zostanie nadana wartość tracking_id, a przy każdym kolejnym już nie, tylko zostanie pokazana ta pierwsza wartość (losowa wartość zostanie nadana gdy wartość tracking_id równa sie 0 lub false)
