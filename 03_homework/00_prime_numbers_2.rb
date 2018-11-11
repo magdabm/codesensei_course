@@ -44,8 +44,8 @@ puts prime_numbers(50..100).inspect
 
 
 if ARGV.count == 2
-   range = (ARGV[0]..ARGV[1])
-   prime_numbers(range)
+   range = (ARGV[0].to_i..ARGV[1].to_i)
+   puts prime_numbers(range)
 else
    puts "Range should have two numbers."
 end
