@@ -25,7 +25,6 @@ def prime_numbers(range)
       end
       i += 1
    end
-
    ar.delete_if { |e| e < range.min }
    ar.delete_if { |e| ar2[e] == false }
 end

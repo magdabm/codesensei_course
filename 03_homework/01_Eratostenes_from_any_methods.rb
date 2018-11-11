@@ -3,7 +3,6 @@
 # Prime numbers: 2, 3, 5, 7
 
 
-
 def normalize_range(range)
    ar = range.to_a
    if ar.min > 2   # normalizacja zadanego zakresu aby zawsze zakres zaczynał się od 2
@@ -14,7 +13,6 @@ def normalize_range(range)
    end
    ar
 end
-
 
 def prime_numbers(range)
    ar = normalize_range(range)

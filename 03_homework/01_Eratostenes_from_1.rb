@@ -18,11 +18,7 @@ def prime_numbers(range)
       end
       i += 1
    end
-   prime = []
-   ar.map do |e|
-      prime << e if ar2[e] == true
-   end
-   prime
+   ar.delete_if { |e| ar2[e] == nil || ar2[e] == false }
 end
 
 
