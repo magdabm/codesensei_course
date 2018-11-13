@@ -2,6 +2,7 @@
 # $ ruby quick_sort.rb 74 77 64 19 43 47 77 66 47 60 7 97 71 87 95 79
 # 7 19 43 47 47 60 64 66 71 74 77 77 79 87 95 97
 
+
 def argv_prepare(numbers)   # zamiana elementów tablicy na liczby
    numbers.map do |e|
       e.to_i
