@@ -6,6 +6,7 @@ class Figure
 
    def area
       @area = @area.to_f
+
       if unit_change   # if po to, żeby wtedy gdy dojdzie do zamiany na ary, nie wyświetlało się '^2'
          puts "The area of #{@name} is: #{@area.round(2)} #{@unit}."
       else
@@ -16,6 +17,7 @@ class Figure
    def perimeter
       @perimeter = @perimeter.to_f
       puts "The perimeter of #{@name} is: #{@perimeter.round(2)} #{@unit}."
+      trapezoid_info if @name == "trapezoid"
    end
 
    def unit_change   # metoda dzięki której wynik obliczenia pola będzie zamieniany na ary (jeśli będzie powyżej 100m2)
@@ -27,6 +29,9 @@ class Figure
       end
    end
 
+   def trapezoid_info
+      puts "    !That perimeter is right, only if the trapezoid is isosceles."
+   end
 end
 
 class Square < Figure
@@ -66,13 +71,17 @@ end
 class Trapezoid < Figure
    def initialize(basea, baseb, height, unit)
       @name = "trapezoid"
-      @basea = basea
-      @baseb = baseb
-      @height = height
+      @a = basea
+      @b = baseb
+      @h = height
       @unit = unit
    end
    def area
-      @area = (@basea*@baseb)/2 * @height
+      @area = (@b*@b)/2 * @h
+      super
+   end
+   def perimeter   # obwód prawidłowy, tylko jeśli trapez jest równoramienny -> dodanie info w wyświetlanej informacji
+      @perimeter = @a + @b + 2 * Math.sqrt(@h**2 + ((@b - @a)/2)**2)
       super
    end
 end
@@ -113,7 +122,9 @@ Rectangle.new(1.2, 2.2, "km").area
 Rectangle.new(1.2, 2.2, "km").perimeter
 puts
 Trapezoid.new(2.34, 6.66, 2, "cm").area
+Trapezoid.new(2.34, 6.66, 2, "cm").perimeter
 Trapezoid.new(113, 33, 16, "m").area
+Trapezoid.new(113, 33, 16, "cm").perimeter
 puts
 Circle.new(5, "cm").area
 Circle.new(5, "cm").perimeter
