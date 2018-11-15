@@ -30,3 +30,11 @@ if ARGV[0] == "-lt"
 else
   puts "USAGE: ruby products.rb FUNCTION ARGUMENT"
 end
+
+if ARGV[0] == "-c"
+   products = products_list.euro_converse(ARGV[1].to_f)
+   
+
+else
+puts "USAGE: ruby products.rb FUNCTION ARGUMENT"
+end

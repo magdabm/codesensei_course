@@ -9,10 +9,10 @@ def argv_prepare(numbers)   # zamiana elementów tablicy na liczby
 end
 
 def bubble_sort(numbers)
-   array = argv_prepare(numbers)
+   array = numbers
    repetition = array.count - 1 # -1, bo np. dla 5 elementowej tablicy porównań będzie 4
    repetition.times do
-      array[0...-1].each_with_index.map do |e, index|   # zapis [0...-1] redukuje tablicę o 0 elementów z lewej i ostatni element z prawej strony, usuwamy ostatni element żeby nie doszło do powrównania ostatniego elementu z nil (w przeciwnym razie error)
+      array[0...-1].each_with_index.map do |e, index|   # zapis [0...-1] redukuje tablicę o 0 elementów z lewej i ostatni element z prawej strony, usuwamy ostatni element żeby nie doszło do porównania ostatniego elementu z nil (w przeciwnym razie error)
          if array[index] > array[index+1]
             z = array[index]
             array[index] = array[index+1]
@@ -29,6 +29,7 @@ end
 
 if ARGV.count >= 2
    numbers = ARGV
+   numbers = argv_prepare(numbers)
    puts bubble_sort(numbers).inspect
 else
    puts "Numbers should be more than 1."

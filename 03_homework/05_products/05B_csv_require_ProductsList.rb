@@ -31,8 +31,24 @@ class ProductsList
     products.find_all { |product| product.price > price }
   end
 
-  private
+  def euro_converse(course)
+     eur_products = products.map do |product|
+        price_array = product.price.split
+        price_array[1] = EUR
+        price_array.join
+     end
+  end
 
+  def export_EUR()
+
+
+
+
+
+  end
+
+
+  private
   def file
     @file ||= File.read("products.csv")
   end

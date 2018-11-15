@@ -38,7 +38,8 @@ puts sort([7, 2, 4, 7, 3, 1, 4, 6, 5, 8, 3, 23, 9, 2, 6, 7, 6, 5],0,17).inspect
 
 if ARGV.count >= 2
    numbers = ARGV
-   puts sort(argv_prepare(numbers), 0, ARGV.size - 1).inspect
+   numbers = argv_prepare(numbers)
+   puts sort(numbers, 0, ARGV.size - 1).inspect
 else
    puts "Numbers should be more than 1."
 end
