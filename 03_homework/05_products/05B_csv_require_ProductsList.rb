@@ -1,5 +1,7 @@
+require 'csv'
+
 class ProductsList
-  attr_writer :products
+  attr_writer :products, :euro_products
 
   def initialize
     self.products = []
@@ -31,20 +33,18 @@ class ProductsList
     products.find_all { |product| product.price > price }
   end
 
-  def euro_converse(course)
-     eur_products = products.map do |product|
-        price_array = product.price.split
-        price_array[1] = EUR
-        price_array.join
+  def euro_converse(exchange, currency)
+     @eur_products = []
+     products.each do |product|
+        @eur_products << ["#{product.name}, #{(product.price*exchange).round(2)} #{currency}, #{product.weight}"]
      end
+     @eur_products
   end
 
-  def export_EUR()
-
-
-
-
-
+  def create_eur_csv(file_name)
+     CSV.open("#{file_name}", "w+") do |csv|
+         @euro_products.each { |product| csv << product }
+     end
   end
 
 
