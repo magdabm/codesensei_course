@@ -15,7 +15,7 @@ attr_accessor :ocean
       self.ocean = Matrix.build(10,10) { |row, col| row * 10 + col + 1 }
    end
 
-   def make_board_to_play_ships
+   def make_board_to_play_ships   # metoda tworząca losową planszę
       place_and_mark_battleship
       place_and_mark_cruiser
       place_and_mark_destroyer
@@ -29,49 +29,37 @@ attr_accessor :ocean
    end
 
    private
-   def place_and_mark_battleship
+   def place_and_mark_battleship   # metoda tworząca losowo czteromasztowiec i zaznaczająca na planszy statek i miejsca dookoła
       place_battleship
       mark_battleship_on_ocean
       mark_waves_around_battleship
    end
 
-   def place_and_mark_cruiser
-      place_cruiser
-      mark_cruiser_on_ocean
-      mark_waves_around_cruiser
-      place_cruiser
-      mark_cruiser_on_ocean
-      mark_waves_around_cruiser
+   def place_and_mark_cruiser   # metoda tworząca losowo dwa trzymasztowce i zaznaczająca na planszy statki i miejsca dookoła
+      2.times do
+         place_cruiser
+         mark_cruiser_on_ocean
+         mark_waves_around_cruiser
+      end
    end
 
-   def place_and_mark_destroyer
-      place_destroyer
-      mark_destroyer_on_ocean
-      mark_waves_around_destroyer
-      place_destroyer
-      mark_destroyer_on_ocean
-      mark_waves_around_destroyer
-      place_destroyer
-      mark_destroyer_on_ocean
-      mark_waves_around_destroyer
+   def place_and_mark_destroyer   # metoda tworząca losowo 3 dwumasztowce i zaznaczająca na planszy statki i miejsca dookoła
+      3.times do
+         place_destroyer
+         mark_destroyer_on_ocean
+         mark_waves_around_destroyer
+      end
    end
 
-   def place_and_mark_submarine
-      place_submarine
-      mark_submarine_on_ocean
-      mark_waves_around_submarine
-      place_submarine
-      mark_submarine_on_ocean
-      mark_waves_around_submarine
-      place_submarine
-      mark_submarine_on_ocean
-      mark_waves_around_submarine
-      place_submarine
-      mark_submarine_on_ocean
-      mark_waves_around_submarine
+   def place_and_mark_submarine   # metoda tworząca losowo 4 jednomasztowce i zaznaczająca na planszy statki i miejsca dookoła
+      4.times do
+         place_submarine
+         mark_submarine_on_ocean
+         mark_waves_around_submarine
+      end
    end
 
-   def horizontal_or_vertical   # najpierw losuję czy statek będzie w pionie czy w poziomie
+   def horizontal_or_vertical   # metoda losująca czy statek będzie w pionie czy w poziomie
       horv = ['vertical', 'horizontal']
       hov = horv.sample
       if hov == 'horizontal'
@@ -81,14 +69,14 @@ attr_accessor :ocean
       end
    end
 
-   def place_battleship   # 4-masztowiec
+   def place_battleship   # metoda wyznaczająca losowo 4-masztowiec
       if horizontal_or_vertical   # jeśli wylosowana opcja poziom
          @b1 = [x = (0..9).to_a.sample, y = (0..9).to_a.sample]
          if ocean[@b1[0], @b1[1] + 3] != nil   # sprawdzenie czy ostatni element statku nie znajdzie się poza macierzą
             @b2 = [x, y+1]
             @b3 = [x, y+2]
             @b4 = [x, y+3]
-            @battleship = [@b1, @b2, @b3, @b4]
+            return @battleship = [@b1, @b2, @b3, @b4]
          else
             place_battleship   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
          end
@@ -98,15 +86,14 @@ attr_accessor :ocean
             @b2 = [x+1, y]
             @b3 = [x+2, y]
             @b4 = [x+3, y]
-            @battleship = [@b1, @b2, @b3, @b4]
+            return @battleship = [@b1, @b2, @b3, @b4]
          else
             place_battleship   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
          end
       end
-      @battleship.inspect
    end
 
-   def place_cruiser   # 3-masztowiec
+   def place_cruiser   # metoda wyznaczająca losowo 3-masztowiec
       if horizontal_or_vertical   # jeśli wylosowana opcja poziom
          @c1 = [x = (0..9).to_a.sample, y = (0..9).to_a.sample]
          if ocean[@c1[0], @c1[1] + 2] != nil &&
@@ -116,7 +103,7 @@ attr_accessor :ocean
             ocean[@c1[0], @c1[1]] != '#'   # sprawdzenie czy ostatni element statku nie znajdzie się poza macierzą, oraz pierwszy i ostatni element nie znajdzie się na innym statku lub obszarze wave
             @c2 = [x, y+1]
             @c3 = [x, y+2]
-            @cruiser = [@c1, @c2, @c3]
+            return @cruiser = [@c1, @c2, @c3]
          else
             place_cruiser   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
          end
@@ -129,15 +116,14 @@ attr_accessor :ocean
             ocean[@c1[0], @c1[1]] != '#' # sprawdzenie czy ostatni element statku nie znajdzie się poza macierzą, oraz pierwszy i ostatni element nie znajdzie się na innym statku lub obszarze wave
             @c2 = [x+1, y]
             @c3 = [x+2, y]
-            @cruiser = [@c1, @c2, @c3]
+            return @cruiser = [@c1, @c2, @c3]
          else
             place_cruiser   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
          end
       end
-      @cruiser.inspect
    end
 
-   def place_destroyer   # 2-masztowiec
+   def place_destroyer   # metoda wyznaczająca losowo 2-masztowiec
       if horizontal_or_vertical   # jeśli wylosowana opcja poziom
          @d1 = [x = (0..9).to_a.sample, y = (0..9).to_a.sample]
          if ocean[@d1[0], @d1[1] + 1] != nil &&
@@ -146,7 +132,7 @@ attr_accessor :ocean
             ocean[@d1[0], @d1[1]] != '.' &&
             ocean[@d1[0], @d1[1]] != '#' # sprawdzenie czy ostatni element statku nie znajdzie się poza macierzą, oraz pierwszy i ostatni element nie znajdzie się na innym statku lub obszarze wave
             @d2 = [x, y+1]
-            @destroyer = [@d1, @d2]
+            return @destroyer = [@d1, @d2]
          else
             place_destroyer   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
          end
@@ -158,43 +144,41 @@ attr_accessor :ocean
             ocean[@d1[0], @d1[1]] != '.' &&
             ocean[@d1[0], @d1[1]] != '#' # sprawdzenie czy ostatni element statku nie znajdzie się poza macierzą, oraz pierwszy i ostatni element nie znajdzie się na innym statku lub obszarze wave
             @d2 = [x+1, y]
-            @destroyer = [@d1, @d2]
+            return @destroyer = [@d1, @d2]
          else
             place_destroyer   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
          end
       end
-      @destroyer.inspect
    end
 
-   def place_submarine   # 1-masztowiec
+   def place_submarine   # metoda wyznaczająca losowo 1-masztowiec
       @s1 = [x = (0..9).to_a.sample, y = (0..9).to_a.sample]
       if ocean[@s1[0], @s1[1]] != '.' && ocean[@s1[0], @s1[1]] != '#'
-         @submarine = [@s1]
+         return @submarine = [@s1]
       else
          place_submarine   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
       end
-      @submarine
    end
 
-   def mark_battleship_on_ocean
+   def mark_battleship_on_ocean   # metoda zaznaczająca współrzędne wylosowanego statku w macierzy
       @battleship.each do |elem|
          ocean.[]=(elem[0], elem[1], '#')
       end
    end
 
-   def mark_cruiser_on_ocean
+   def mark_cruiser_on_ocean   # metoda zaznaczająca współrzędne wylosowanego statku w macierzy
       @cruiser.each do |elem|
          ocean.[]=(elem[0], elem[1], '#')
       end
    end
 
-   def mark_destroyer_on_ocean
+   def mark_destroyer_on_ocean   # metoda zaznaczająca współrzędne wylosowanego statku w macierzy
       @destroyer.each do |elem|
          ocean.[]=(elem[0], elem[1], '#')
       end
    end
 
-   def mark_submarine_on_ocean
+   def mark_submarine_on_ocean   # metoda zaznaczająca współrzędne wylosowanego statku w macierzy
       @submarine.each do |elem|
          ocean.[]=(elem[0], elem[1], '#')
       end
@@ -417,25 +401,25 @@ attr_accessor :ocean
       end
    end   # metoda dzięki której zaznaczane są pola dookoła każdego masztu z uwzględnieniem miejsc gdzie nie da się zaznaczyć (krawędź macierzy) /problematyczne było zaznaczanie gdy któraś wsþółrzędna wynosi -1 -> wtedy następowało nieprawidłowe przejście do ostatniego wiersza lub kolumny macierzy, dlatego aby to wyeliminować kod tej metody ma tylko 215 linijek ;p /
 
-   def mark_waves_around_battleship
+   def mark_waves_around_battleship   # metoda wyznaczająca pola dookoła każdego wylosowanego statku (używa metody oznczającej pole dookoła pojedynczego masztu)
       @battleship.each do |elem|
          mark_waves_around_mast(elem)
       end
    end
 
-   def mark_waves_around_cruiser
+   def mark_waves_around_cruiser   # metoda wyznaczająca pola dookoła każdego wylosowanego statku (używa metody oznczającej pole dookoła pojedynczego masztu)
       @cruiser.each do |elem|
          mark_waves_around_mast(elem)
       end
    end
 
-   def mark_waves_around_destroyer
+   def mark_waves_around_destroyer   # metoda wyznaczająca pola dookoła każdego wylosowanego statku (używa metody oznczającej pole dookoła pojedynczego masztu)
       @destroyer.each do |elem|
          mark_waves_around_mast(elem)
       end
    end
 
-   def mark_waves_around_submarine
+   def mark_waves_around_submarine   # metoda wyznaczająca pola dookoła każdego wylosowanego statku (używa metody oznczającej pole dookoła pojedynczego masztu)
       @submarine.each do |elem|
          mark_waves_around_mast(elem)
       end
