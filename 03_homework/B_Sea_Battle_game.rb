@@ -12,7 +12,9 @@ class Ships
 attr_accessor :ocean
 
    def initialize
-      self.ocean = Matrix.build(10,10) { |row, col| row * 10 + col + 1 }
+      self.ocean = Matrix.build(10,10) { |row, col| 0 }
+      @ships_positions = []
+      @waves_positions = []
    end
 
    def make_board_to_play_ships   # metoda tworząca losową planszę
@@ -20,13 +22,28 @@ attr_accessor :ocean
       place_and_mark_cruiser
       place_and_mark_destroyer
       place_and_mark_submarine
+      make_waves_on_empty_positions
+
    end
 
    def look_on_board   # metoda pomocnicza żeby zobaczyć jak wygląda plansza :)
       ocean.to_a.each do |row|
-         puts row.inspect
+         row.each do |e|
+            print "| #{e} "
+         end
+         puts
+         print "+---" * 10
+         print "+" "\n"
       end
    end
+
+   def look_on_array_of_ships   # metoda pomocnicza żeby zobaczyć jak wygląda tablica współrzędnych statków :)
+      @ships_positions.each { |row| puts row.inspect }
+   end
+
+   # def look_on_array_of_waves   # metoda pomocnicza żeby zobaczyć jak tablica współrzędnych statków :)
+   #    @waves_positions.each { |row| puts row.inspect }
+   # end
 
    private
    def place_and_mark_battleship   # metoda tworząca losowo czteromasztowiec i zaznaczająca na planszy statek i miejsca dookoła
@@ -76,7 +93,9 @@ attr_accessor :ocean
             @b2 = [x, y+1]
             @b3 = [x, y+2]
             @b4 = [x, y+3]
-            return @battleship = [@b1, @b2, @b3, @b4]
+            @battleship = [@b1, @b2, @b3, @b4]
+            @ships_positions << @battleship
+            return @battleship
          else
             place_battleship   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
          end
@@ -86,7 +105,9 @@ attr_accessor :ocean
             @b2 = [x+1, y]
             @b3 = [x+2, y]
             @b4 = [x+3, y]
-            return @battleship = [@b1, @b2, @b3, @b4]
+            @battleship = [@b1, @b2, @b3, @b4]
+            @ships_positions << @battleship
+            return @battleship
          else
             place_battleship   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
          end
@@ -103,7 +124,9 @@ attr_accessor :ocean
             ocean[@c1[0], @c1[1]] != '#'   # sprawdzenie czy ostatni element statku nie znajdzie się poza macierzą, oraz pierwszy i ostatni element nie znajdzie się na innym statku lub obszarze wave
             @c2 = [x, y+1]
             @c3 = [x, y+2]
-            return @cruiser = [@c1, @c2, @c3]
+            @cruiser = [@c1, @c2, @c3]
+            @ships_positions << @cruiser
+            return @cruiser
          else
             place_cruiser   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
          end
@@ -116,7 +139,9 @@ attr_accessor :ocean
             ocean[@c1[0], @c1[1]] != '#' # sprawdzenie czy ostatni element statku nie znajdzie się poza macierzą, oraz pierwszy i ostatni element nie znajdzie się na innym statku lub obszarze wave
             @c2 = [x+1, y]
             @c3 = [x+2, y]
-            return @cruiser = [@c1, @c2, @c3]
+            @cruiser = [@c1, @c2, @c3]
+            @ships_positions << @cruiser
+            return @cruiser
          else
             place_cruiser   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
          end
@@ -132,7 +157,9 @@ attr_accessor :ocean
             ocean[@d1[0], @d1[1]] != '.' &&
             ocean[@d1[0], @d1[1]] != '#' # sprawdzenie czy ostatni element statku nie znajdzie się poza macierzą, oraz pierwszy i ostatni element nie znajdzie się na innym statku lub obszarze wave
             @d2 = [x, y+1]
-            return @destroyer = [@d1, @d2]
+            @destroyer = [@d1, @d2]
+            @ships_positions << @destroyer
+            return @destroyer
          else
             place_destroyer   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
          end
@@ -144,7 +171,9 @@ attr_accessor :ocean
             ocean[@d1[0], @d1[1]] != '.' &&
             ocean[@d1[0], @d1[1]] != '#' # sprawdzenie czy ostatni element statku nie znajdzie się poza macierzą, oraz pierwszy i ostatni element nie znajdzie się na innym statku lub obszarze wave
             @d2 = [x+1, y]
-            return @destroyer = [@d1, @d2]
+            @destroyer = [@d1, @d2]
+            @ships_positions << @destroyer
+            return @destroyer
          else
             place_destroyer   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
          end
@@ -154,7 +183,9 @@ attr_accessor :ocean
    def place_submarine   # metoda wyznaczająca losowo 1-masztowiec
       @s1 = [x = (0..9).to_a.sample, y = (0..9).to_a.sample]
       if ocean[@s1[0], @s1[1]] != '.' && ocean[@s1[0], @s1[1]] != '#'
-         return @submarine = [@s1]
+         @submarine = [@s1]
+         @ships_positions << @submarine
+         return @submarine
       else
          place_submarine   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
       end
@@ -425,8 +456,18 @@ attr_accessor :ocean
       end
    end
 
+   def make_waves_on_empty_positions   # metoda zamieniająca pozostałe w macierzy "0" na kropki (fale)
+      loop do
+         zero = ocean.find_index(0)
+         ocean.[]=(zero[0], zero[1], '.')
+         break if ocean.find_index(0) == nil
+      end
+   end
+
 end
+
 
 ships = Ships.new
 ships.make_board_to_play_ships
 ships.look_on_board
+ships.look_on_array_of_ships
