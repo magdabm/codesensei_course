@@ -119,8 +119,7 @@ attr_accessor :ocean
          end
       else
          @c1 = drawing_first_mast   # jeśli wylosowana opcja pion
-         if ![nil, '.', 'X'].include?(ocean[@c1[0] + 2, @c1[1]]) &&
-            !['.', 'X'].include?(ocean[@c1[0], @c1[1]])   # sprawdzenie czy ostatni element statku nie znajdzie się poza macierzą, oraz pierwszy i ostatni element nie znajdzie się na innym statku lub obszarze wave
+         if ![nil, '.', 'X'].include?(ocean[@c1[0] + 2, @c1[1]]) && !['.', 'X'].include?(ocean[@c1[0], @c1[1]])   # sprawdzenie czy ostatni element statku nie znajdzie się poza macierzą, oraz pierwszy i ostatni element nie znajdzie się na innym statku lub obszarze wave
             @ships_positions << [@c1, @c2 = [@x+1, @y], @c3 = [@x+2, @y]]
          else
             place_cruiser   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
@@ -132,16 +131,14 @@ attr_accessor :ocean
    def place_destroyer   # metoda wyznaczająca losowo 2-masztowiec
       if horizontal_or_vertical   # jeśli wylosowana opcja poziom
          @d1 = drawing_first_mast
-         if ![nil, '.', 'X'].include?(ocean[@d1[0], @d1[1] + 1]) &&
-            !['.', 'X'].include?(ocean[@d1[0], @d1[1]])   # sprawdzenie czy ostatni element statku nie znajdzie się poza macierzą, oraz pierwszy i ostatni element nie znajdzie się na innym statku lub obszarze wave
+         if ![nil, '.', 'X'].include?(ocean[@d1[0], @d1[1] + 1]) && !['.', 'X'].include?(ocean[@d1[0], @d1[1]])   # sprawdzenie czy ostatni element statku nie znajdzie się poza macierzą, oraz pierwszy i ostatni element nie znajdzie się na innym statku lub obszarze wave
             @ships_positions << [@d1, @d2 = [@x, @y+1]]
          else
             place_destroyer   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
          end
       else
          @d1 = drawing_first_mast   # jeśli wylosowana opcja pion
-         if ![nil, '.', 'X'].include?(ocean[@d1[0] + 1, @d1[1]]) &&
-            !['.', 'X'].include?(ocean[@d1[0], @d1[1]])   # sprawdzenie czy ostatni element statku nie znajdzie się poza macierzą, oraz pierwszy i ostatni element nie znajdzie się na innym statku lub obszarze wave
+         if ![nil, '.', 'X'].include?(ocean[@d1[0] + 1, @d1[1]]) && !['.', 'X'].include?(ocean[@d1[0], @d1[1]])   # sprawdzenie czy ostatni element statku nie znajdzie się poza macierzą, oraz pierwszy i ostatni element nie znajdzie się na innym statku lub obszarze wave
             @ships_positions << [@d1, @d2 = [@x+1, @y]]
          else
             place_destroyer   # wywołanie metody ponownie (jeśli wybrany zły punkt początkowy)
