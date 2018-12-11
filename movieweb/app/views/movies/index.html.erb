@@ -1,0 +1,29 @@
+<h1>List of movies</h1>
+
+   <table>
+      <tr>
+         <th align="left"> Title </th>
+         <th align="left"> Director </th>
+         <th align="left"> Country </th>
+         <th align="left"> Genre </th>
+         <th align="left"> Description </th>
+         <th></th>
+      </tr>
+
+      <% @movies.each do |movie| %>
+         <tr>
+            <td><%= movie.title %></td>
+            <td><%= simple_format(movie.director) %></td>
+            <td><%= simple_format(movie.country) %></td>
+            <td><%= simple_format(movie.genre) %></td>
+            <td width="50%"><%= movie.description %></td>
+            <td><%= link_to 'Show', movie_path(movie) %>
+            <td><%= link_to 'Edit', edit_movie_path(movie) %>
+            <td><%= link_to 'Delete', movie_path(movie), method: :delete, data: { confirm: "Are you sure you want to delete #{movie.title}?" }%>
+         </tr>
+      <% end %>
+   </table>
+<br>
+<br>
+
+<%= link_to 'Add new movie', new_movie_path %>
